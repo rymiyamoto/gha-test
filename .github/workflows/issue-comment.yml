@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          echo val: "$VAL", ret: "$RET" , pr-number: "$NUMBER"
+          echo val "$VAL", ret "$RET" , pr-number "$NUMBER"
         env:
           VAL: ${{github.event.pull_request.labels.*.name}}
           RET: ${{contains(github.event.pull_request.labels.*.name, 'test')}}
