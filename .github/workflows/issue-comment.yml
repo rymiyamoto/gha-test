@@ -5,7 +5,7 @@ on:
 
 jobs:
   issue-comment:
-    if: github.event.issue.pull_request && contains(github.event.pull_request.labels.*.name, 'test') && startsWith(github.event.comment.body, '/test update')
+    if: github.event.issue.pull_request && contains(github.event.pull_request.labels.*.name, 'test') && startsWith(github.event.comment.body, 'test update')
     runs-on: ubuntu-latest
     steps:
       - run: |
