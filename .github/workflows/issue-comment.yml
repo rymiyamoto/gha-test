@@ -8,7 +8,7 @@ jobs:
     if: >-
       github.event.issue.pull_request &&
       contains(github.event.pull_request.labels.*.name, 'test') &&
-      github.event.comment.body == '/test update'
+      startsWith(github.event.comment.body, '/test update')
     runs-on: ubuntu-latest
     steps:
       - run: |
