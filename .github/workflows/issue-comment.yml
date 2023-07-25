@@ -4,7 +4,7 @@ on:
     types: [created]
 jobs:
   issue-comment:
-    if: ${{ github.event.issue.pull_request }}
+    if: ${{ github.event.issue.pull_request }} && github.event.comment.body == 'hello world'
     runs-on: ubuntu-latest
     steps:
       - run: |
