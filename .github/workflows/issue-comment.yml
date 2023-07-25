@@ -5,14 +5,13 @@ on:
 
 jobs:
   issue-comment:
-    if: github.event.issue.pull_request && startsWith(github.event.comment.body, 'test update')
-    # contains(github.event.pull_request.labels.*.name, 'test') &&
+    if: github.event.issue.pull_request && contains(github.event.*.labels.*.name, 'test') && startsWith(github.event.comment.body, 'test update')
     runs-on: ubuntu-latest
     steps:
       - run: |
           echo "${{ toJson(github.event.*.labels.*.name) }}"
       - run: |
-          echo "${{ contains(github.event.pull_request.labels.*.name, 'test') }}"
+          echo "${{ contains(github.event.*.labels.*.name, 'test') }}"
       - run: |
           echo pr-number "$NUMBER"
         env:
