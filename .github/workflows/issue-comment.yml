@@ -2,9 +2,13 @@ name: issue comment
 on:
   issue_comment:
     types: [created]
+
 jobs:
   issue-comment:
-    if: github.event.issue.pull_request && github.event.comment.body == 'hello world'
+    if: >-
+      github.event.issue.pull_request &&
+      contains(github.event.pull_request.labels.*.name, 'test') &&
+      github.event.comment.body == '/test update'
     runs-on: ubuntu-latest
     steps:
       - run: |
