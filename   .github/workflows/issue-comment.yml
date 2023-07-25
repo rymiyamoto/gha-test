@@ -4,14 +4,10 @@ on:
     types: [created]
 jobs:
   issue-comment:
-    runs-on: ubuntu-latest
     if: ${{ github.event.issue.pull_request }}
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-      - name: make log
-        run: |
+      - run: |
           echo A comment on PR "$NUMBER"
         env:
-          NUMBER: ${{ github.event.issue.number }}
+          NUMBER: ${{ github.event.issue.number }}å
