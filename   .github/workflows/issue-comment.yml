@@ -5,11 +5,13 @@ on:
 jobs:
   issue-comment:
     runs-on: ubuntu-latest
-    if : github.event.issue.pull_request != null
+    if: ${{ github.event.issue.pull_request }}
     steps:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
       - name: make log
-        run: echo 'make test'
+        run: |
+          echo A comment on PR "$NUMBER"
         env:
+          NUMBER: ${{ github.event.issue.number }}
