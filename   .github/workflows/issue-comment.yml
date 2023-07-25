@@ -11,4 +11,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: make log
-        run: echo 'make test'
+        run: |
+          echo A comment on PR "$NUMBER"
+        env:
+          NUMBER: ${{ github.event.issue.number }}
