@@ -12,4 +12,3 @@ jobs:
           fetch-depth: 0
       - name: make log
         run: echo 'make test'
-        env:
