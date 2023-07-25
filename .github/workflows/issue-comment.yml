@@ -4,11 +4,10 @@ on:
     types: [created]
 jobs:
   issue-comment:
-    if: ${{ github.event.issue.pull_request }} && github.event.comment.body == 'hello world'
+    if: github.event.issue.pull_request && github.event.comment.body == 'hello world'
     runs-on: ubuntu-latest
     steps:
       - run: |
-          echo input text "$TEXT", comment on PR "$NUMBER"
+          echo comment on PR "$NUMBER"
         env:
           NUMBER: ${{ github.event.issue.number }}
-          TEXT: ${{ github.event.comment.body }}
