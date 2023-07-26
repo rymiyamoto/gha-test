@@ -10,13 +10,15 @@ jobs:
     permissions:
       pull-requests: write
     env:
-      NUMBER: ${{ github.event.issue.number }}
+      BASE_URL: dev.example.com
+      REPOSITORY: ${{ github.repository }}
+      PR_NUMBER: ${{ github.event.issue.number }}
     steps:
       - run: |
-          echo pr-number "$NUMBER"
+          echo pr-number "$PR_NUMBER"
       - name: add comment
         uses: peter-evans/create-or-update-comment@v3
         with:
-          issue-number: ${{ env.NUMBER }}
+          issue-number: ${{ env.PR_NUMBER }}
           body: |
-            test updated :white_check_mark:
+          :white_check_mark: test updated "$PR_NUMBER-$PR_NUMBER.$BASE_URL"
