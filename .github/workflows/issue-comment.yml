@@ -18,5 +18,6 @@ jobs:
         uses: peter-evans/create-or-update-comment@v3
         with:
           issue-number: ${{ env.NUMBER }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           body: |
             test updated :white_check_mark:
