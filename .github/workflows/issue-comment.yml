@@ -17,6 +17,6 @@ jobs:
       - name: add comment
         uses: peter-evans/create-or-update-comment@v3
         with:
-          issue-number: $NUMBER
+          issue-number: ${{ env.NUMBER }}
           body: |
             test updated :white_check_mark:
