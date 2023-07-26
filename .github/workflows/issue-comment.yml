@@ -21,4 +21,4 @@ jobs:
         with:
           issue-number: ${{ env.PR_NUMBER }}
           body: |
-            :white_check_mark: test updated [${{ env.REPOSITORY_NAME }}-${{ env.PR_NUMBER }}.${{ env.BASE_URL }}](url)
+            :white_check_mark: test updated https://${{ env.REPOSITORY_NAME }}-${{ env.PR_NUMBER }}.${{ env.BASE_URL }}
