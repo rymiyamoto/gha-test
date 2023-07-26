@@ -11,6 +11,8 @@ jobs:
       - run: |
           echo "${{ toJson(github.event.*.labels.*.name) }}"
       - run: |
+          echo "${{ toJson(github.event.pull_request.labels.*.name) }}"
+      - run: |
           echo "${{ contains(github.event.*.labels.*.name, 'test') }}"
       - run: |
           echo pr-number "$NUMBER"
