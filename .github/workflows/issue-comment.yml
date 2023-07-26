@@ -15,7 +15,7 @@ jobs:
       PR_NUMBER: ${{ github.event.issue.number }}
     steps:
       - run: |
-          echo pr-number "$PR_NUMBER"
+          echo pr-number is  "$PR_NUMBER"
       - name: add comment
         uses: peter-evans/create-or-update-comment@v3
         with:
