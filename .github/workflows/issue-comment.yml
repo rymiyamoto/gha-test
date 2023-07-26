@@ -21,4 +21,4 @@ jobs:
         with:
           issue-number: ${{ env.PR_NUMBER }}
           body: |
-            :white_check_mark: test updated "$PR_NUMBER-$PR_NUMBER.$BASE_URL"
+            :white_check_mark: test updated ${{ env.REPOSITORY }}-${{ env.PR_NUMBER }}.${{ env.BASE_URL }}
