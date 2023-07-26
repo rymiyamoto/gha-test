@@ -11,7 +11,7 @@ jobs:
       pull-requests: write
     env:
       BASE_URL: dev.example.com
-      REPOSITORY: ${{ github.repository }}
+      REPOSITORY_NAME: ${{github.event.repository.name}}
       PR_NUMBER: ${{ github.event.issue.number }}
     steps:
       - run: |
@@ -21,4 +21,4 @@ jobs:
         with:
           issue-number: ${{ env.PR_NUMBER }}
           body: |
-            :white_check_mark: test updated ${{ env.REPOSITORY }}-${{ env.PR_NUMBER }}.${{ env.BASE_URL }}
+            :white_check_mark: test updated ${{ env.REPOSITORY_NAME }}-${{ env.PR_NUMBER }}.${{ env.BASE_URL }}
