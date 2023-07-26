@@ -7,14 +7,16 @@ jobs:
   issue-comment:
     if: github.event.issue.pull_request && contains(github.event.*.labels.*.name, 'test') && startsWith(github.event.comment.body, 'test update')
     runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    env:
+      NUMBER: ${{ github.event.issue.number }}
     steps:
       - run: |
-          echo "${{ toJson(github.event.*.labels.*.name) }}"
-      - run: |
-          echo "${{ toJson(github.event.pull_request.labels.*.name) }}"
-      - run: |
-          echo "${{ contains(github.event.*.labels.*.name, 'test') }}"
-      - run: |
           echo pr-number "$NUMBER"
-        env:
-          NUMBER: ${{ github.event.issue.number }}
+      - name: add comment
+        uses: peter-evans/create-or-update-comment@5f728c3dae25f329afbe34ee4d08eef25569d79f
+        with:
+          issue-number: $NUMBER
+          body: |
+            test updated :white_check_mark:
